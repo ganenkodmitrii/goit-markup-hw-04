@@ -163,13 +163,32 @@ body {
 
 .site-address .link:not(:last-child) {
   margin-right: 30px;
+  /* margin-right: 50px; */
 }
 
-.site-address .img {
+.site-address .link::before {
+  content: "";
+  display: inline-block;
+  height: 16px;
+  width: 16px;
   margin-right: 10px;
-}
-/* overlay */
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
 
+  /* outline: 1px solid tomato; */
+}
+
+.icon-email::before {
+  background-image: url("../images/email.svg");
+}
+.icon-phone::before {
+  background-image: url("../images/phone.svg");
+}
+/* .site-address .img {
+  margin-right: 10px;
+} */
+
+/* overlay */
 .overlay {
   margin-left: auto;
   margin-right: auto;
