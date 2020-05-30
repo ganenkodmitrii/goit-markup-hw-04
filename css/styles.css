@@ -140,10 +140,25 @@ body {
 
 /* address */
 .site-address {
+  display: flex;
   margin-left: auto;
+  align-items: center;
+}
+
+/* .site-address .item {
+  height: 80px;
+  display: inline-flex;
+} */
+
+.site-address .item:not(:last-child) {
+  margin-right: 30px;
+  /* margin-right: 50px; */
 }
 
 .site-address .link {
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
   padding-top: 32px;
   padding-bottom: 32px;
 
@@ -154,6 +169,7 @@ body {
   line-height: 1.14;
   letter-spacing: 0.02em;
   text-decoration: none;
+  /* outline: 1px solid tomato; */
 }
 
 .site-address .link:hover,
@@ -161,32 +177,10 @@ body {
   color: var(--accent-color);
 }
 
-.site-address .link:not(:last-child) {
-  margin-right: 30px;
-  /* margin-right: 50px; */
-}
-
-.site-address .link::before {
-  content: "";
-  display: inline-block;
-  height: 16px;
-  width: 16px;
+.icon-envelope,
+.icon-smartphone {
   margin-right: 10px;
-  background-repeat: no-repeat;
-  background-position: 100% 100%;
-
-  /* outline: 1px solid tomato; */
 }
-
-.icon-email::before {
-  background-image: url("../images/email.svg");
-}
-.icon-phone::before {
-  background-image: url("../images/phone.svg");
-}
-/* .site-address .img {
-  margin-right: 10px;
-} */
 
 /* overlay */
 .overlay {
@@ -292,31 +286,14 @@ body {
   margin-right: 30px;
 }
 
-.dignity .item::before {
-  content: "";
-  display: block;
+.dignity-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 120px;
   margin-bottom: 30px;
   background-color: var(--primary-grey-color);
   border-radius: 4px;
-
-  background-repeat: no-repeat;
-  background-position: center;
-
-  /* outline: 1px solid yellowgreen; */
-}
-
-.icon-antenna::before {
-  background-image: url("../images/antenna.svg");
-}
-.icon-clock::before {
-  background-image: url("../images/clock.svg");
-}
-.icon-vector::before {
-  background-image: url("../images/vector.svg");
-}
-.icon-astronaut::before {
-  background-image: url("../images/astronaut.svg");
 }
 
 .dignity .text {
@@ -339,11 +316,6 @@ body {
   margin-right: 30px;
 }
 
-.img-lead {
-  border-radius: 4px;
-  overflow: hidden;
-}
-
 .lead {
   margin-top: 0;
   margin-bottom: 0;
@@ -352,7 +324,6 @@ body {
 
   color: var(--primary-white-color);
   background-color: rgba(47, 48, 58, 0.8);
-  border-radius: 0px 0px 4px 4px;
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
@@ -374,11 +345,11 @@ body {
   width: calc((100% -90px) / 4);
   text-align: center;
   background-color: var(--primary-white-color);
-  border-radius: 4px;
   overflow: hidden;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2), 0px 1px 1px rgba(0, 0, 0, 0.14),
     0px 1px 3px rgba(0, 0, 0, 0.12);
 }
+
 .team-box .item:not(:last-child) {
   margin-right: 30px;
 }
@@ -410,22 +381,35 @@ body {
 /* Иконки соц.сетей */
 .socials {
   display: flex;
-  /* padding: 12px;
-  margin-left: 35px;
-  margin-right: 36px; */
-
-  justify-content: space-evenly;
+  margin-left: 32px;
+  margin-right: 32px;
 
   /* outline: 2px solid tomato; */
 }
 
-.userpic {
-  color: #afb1b8;
-  text-decoration: none;
+.socials .icons:not(:last-child) {
+  margin-right: 10px;
 }
-.userpic:hover,
-.userpic:focus {
-  color: var(--accent-color);
+
+.icon-social {
+  display: flex;
+  justify-content: center;
+  border-radius: 50px;
+  width: 44px;
+  height: 44px;
+
+  color: #afb1b8;
+  background-color: var(--primary-white-color);
+}
+
+.icon-social:hover,
+.icon-social:focus {
+  color: var(--primary-white-color);
+  background-color: var(--accent-color);
+}
+
+.social-network {
+  fill: currentColor;
 }
 
 /* Список клиентов */
@@ -433,15 +417,35 @@ body {
   display: flex;
 }
 
-.company-box .icons {
-  /* width: 175px; */
+/* .company-box .icons {
   width: calc((100% - (30px * 5)) / 6);
   height: 90px;
-  /* outline: 1px solid rosybrown; */
-}
+
+  outline: 1px solid rosybrown;
+} */
 
 .company-box .icons:not(:first-child) {
   margin-left: 30px;
+}
+
+.logo-border {
+  width: 170px;
+  height: 90px;
+  color: #afb1b8;
+  border: 1px solid;
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-border:hover,
+.logo-border:focus {
+  color: var(--accent-color);
+}
+
+.icon-logo {
+  fill: currentColor;
 }
 
 /* portofolio main */
@@ -458,6 +462,7 @@ body {
 
 .button-list {
   padding: 6px 22px;
+  border: none;
   color: var(--title-text-color);
   background-color: var(--primary-grey-color);
   font-family: inherit;
@@ -478,10 +483,15 @@ body {
 .work-box .item {
   width: calc((100% - 60px) / 3);
   border: 1px solid #eeeeee;
-  border-radius: 5px;
   overflow: hidden;
 
   /* outline: 2px solid aquamarine; */
+}
+
+.work-box .item:hover,
+.work-box .item:focus {
+  box-shadow: 1px 4px 6px rgba(0, 0, 0, 0.16), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    0px 1px 1px rgba(0, 0, 0, 0.12);
 }
 
 .work-box .item:not(:nth-child(3n)) {
@@ -519,7 +529,6 @@ body {
   text-decoration: none;
 }
 /* .desc-text {
- 
   color: var(--primary-white-color);
   background-color: rgba(33, 150, 243, 0.9);
   font-weight: 400;
@@ -580,19 +589,10 @@ body {
   text-decoration: none;
 }
 
-/* .join-box {
-  outline: 1px solid blue;
-  width: 207px;
-} */
-
-.social {
-  display: flex;
-  justify-content: space-between;
+/* Присоединяйтесь */
+.join-box .socials {
+  margin: 0;
 }
-/* 
-.social .pics {
-  background-color: burlywood;
-} */
 
 .subscribe {
   display: block;
@@ -604,21 +604,24 @@ body {
   text-transform: uppercase;
 }
 
+.join-box .icon-social {
+  color: var(--primary-white-color);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.join-box .icon-social:hover,
+.join-box .icon-social:focus {
+  background-color: var(--accent-color);
+}
+
+/* Подпишись на рассылку */
 .subscribe-box .input {
   display: flex;
 }
 
-.pic {
-  color: var(--primary-white-color);
-  background-color: rgba(255, 255, 255, 0.1);
-  text-decoration: none;
-}
-
-.pic:hover,
-.pic:focus {
-  color: var(--primary-white-color);
-  background-color: var(--accent-color);
-}
+/* .button-icon {
+  margin-top: ;
+} */
 
 .copyright {
   margin-top: 0;
