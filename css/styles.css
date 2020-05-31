@@ -474,6 +474,7 @@ body {
   border-radius: 4px;
   color: var(--title-text-color);
   background-color: var(--primary-grey-color);
+  cursor: pointer;
 }
 
 .button-list:hover,
